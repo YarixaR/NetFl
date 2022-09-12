@@ -31,7 +31,7 @@ avatars = ['https://i.pinimg.com/564x/3b/c8/78/3bc878dcaf0830af8a322117097bc39f.
   User.create(
     name: Faker::Games::Pokemon.name,
     email: emails.sample,
-    password: rand(1000..10000),
+    password_digest: rand(1000..10000),
     avatar: avatars.sample
   )
 end
