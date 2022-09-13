@@ -1,6 +1,6 @@
 import React from "react";
 import { useState } from "react";
-import { Link } from 'react-router-dom'
+import { Link, useHistory } from 'react-router-dom'
 
 function Login() {
   const [formData, setFormData] = useState({
@@ -9,7 +9,7 @@ function Login() {
   });
 
   const [errors, setErrors] = useState([])
-  // const history = useHistory()
+  const history = useHistory()
 
   const handleChange = (e) => {
     setFormData({
@@ -30,7 +30,7 @@ function Login() {
       console.log(res)
       if (res.ok) {
         res.json().then((user) => {
-          // history.push(`/users/${user.id}`)
+          history.push(`/home`)
           console.log(user)
         });
       } else {
@@ -50,7 +50,7 @@ function Login() {
               value={formData.email}
               onChange={handleChange}>
             </input>
-          <lable></lable>
+          <label></label>
             <input 
               type='password'
               name='password' 
