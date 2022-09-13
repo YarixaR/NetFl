@@ -1,5 +1,6 @@
 class MoviesController < ApplicationController
     before_action :find_movie, only: :show
+    # skip_before_action :authenticate_user
   
     # GET '/movies'
     def index

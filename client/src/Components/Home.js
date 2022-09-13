@@ -1,25 +1,26 @@
 import React from 'react'
-import { Route, Switch } from "react-router-dom";
+import {useState, useEffect} from 'react'
 import NavBar from "./NavBar";
 
 function Home() {
+
+  const [ movies, setMovies ] = useState([]);
+
+
+  useEffect(() => {
+    fetch('/movies')
+    .then((res) => res.json())
+    .then((data) => setMovies(data))
+  }, [])
+
+
+  console.log(movies)
+
+  
   return (
     <div>
       <NavBar />
-      <Switch>
-        <Route exact path="/home">
-          <Home />
-        </Route>
-        {/* <Route exact path="/shows">
-          <Shows />
-        </Route>
-        <Route exact path="/movies">
-          <Movies />
-        </Route>
-        <Route exact path="/user-page">
-          <User />
-        </Route> */}
-      </Switch>
+      
     </div>
   )
 }
