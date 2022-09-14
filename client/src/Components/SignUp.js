@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { useHistory } from 'react-router-dom'
 
-function SignUp({updateUser}) {
+function SignUp() {
   const [formData, setFormData] = useState({
     email:'',
     name:'',
@@ -10,7 +10,7 @@ function SignUp({updateUser}) {
   })
 
   const [errors, setErrors] = useState([])
-  // const history = useHistory()
+  const history = useHistory()
 
   const {name, email, password, avatar} = formData
 
@@ -34,15 +34,14 @@ function SignUp({updateUser}) {
       body:JSON.stringify(user)
     })
     .then(res => {console.log(res)
-        // if(res.ok){
-        //     res.json().then(user => {
-        //       console.log(user)
-        //         // updateUser(user)
-        //         // history.push(`/users/${user.id}`)
-        //     })
-        // }else {
-        //     res.json().then(json => setErrors(Object.entries(json.error)))
-        // }
+        if(res.ok){
+            res.json().then(user => {
+              console.log(user)
+              history.push(`/home`)
+            })
+        }else {
+            res.json().then(json => setErrors(Object.entries(json.error)))
+        }
     })
   }
 

@@ -1,6 +1,5 @@
 class MoviesController < ApplicationController
     before_action :find_movie, only: :show
-    # skip_before_action :authenticate_user
   
     # GET '/movies'
     def index
@@ -17,4 +16,5 @@ class MoviesController < ApplicationController
     def find_movie
       @movie = Movie.find(params[:id])
     end
+
   end

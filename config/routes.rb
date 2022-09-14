@@ -6,6 +6,7 @@ Rails.application.routes.draw do
   
   resources :reviews
   resources :movies, only: [:index, :show]
+
   resources :users, only: [:show, :create]
 
   post '/login', to: "sessions#create"
