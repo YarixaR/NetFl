@@ -25,8 +25,15 @@ function SelectedMovie() {
       <h4>{movie.release_date}</h4>
       <h4>{movie.description}</h4>
       <button onClick={handleClick}>Return to Home</button>
+      <form>
+        <label>Rating</label>
+        <input type='text' name='rating' />
+      </form>
     </div>
   )
 }
 
 export default SelectedMovie
+
+// t.integer "rating"
+// t.string "comment"
