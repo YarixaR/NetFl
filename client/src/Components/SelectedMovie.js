@@ -27,7 +27,6 @@ function SelectedMovie({userId}) {
     setComment(e.target.value)
   }
 
-  console.log(userId)
 
   const handleSubmit = (e) => {
     e.preventDefault()
@@ -39,12 +38,12 @@ function SelectedMovie({userId}) {
       body: JSON.stringify({
         rating: rating-1,
         comment: comment,
-        // user_id: userId,
+        user_id: userId,
         movie_id: id
       }),
       })    
         .then((resp) => resp.json())
-        // .then(data => console.log(data))
+        .then(data => console.log(data))
   }
 
   return (

@@ -2,7 +2,7 @@ import React from 'react'
 import NavBar from "./NavBar"
 import Card from './Card'
 
-function Home({movies}) {
+function Home({movies, userId}) {
 
   // console.log(movies[1])
 
@@ -30,6 +30,7 @@ function Home({movies}) {
           genre = {movie.genre}
           description = {movie.description}
           trailer = {movie.trailer}
+          userId = {userId}
         />)}
       </div>
     </div>

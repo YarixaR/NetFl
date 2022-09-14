@@ -30,7 +30,7 @@ function App() {
     setUserId(id)
   }
 
-  console.log(userData.id)
+  // console.log(userData.id)
 
   // const [isAuthenticated, setIsAuthenticated] = useState(false);
   // const [currentUser, setCurrentUser] = useState(null);
@@ -60,10 +60,10 @@ function App() {
           <SignUp />
         </Route>
         <Route path="/movie/:id">
-          <SelectedMovie />
+          <SelectedMovie userId={userData.id}/>
         </Route>
         <Route path="/movies">
-          <Movies movies={movies} userId={userData}/>
+          <Movies movies={movies} userId={userData.id}/>
         </Route>
         <Route path="/shows">
           <Shows shows={movies}/>
