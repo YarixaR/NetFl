@@ -1,8 +1,8 @@
 class ReviewsController < ApplicationController
     before_action :find_review, only: [:show, :update, :destroy]
+    # skip_before_action :authenticate_user, except: [:index, :show]
     rescue_from ActiveRecord::RecordInvalid, with: :render_unprocessable_entity_response
     
-  
     # GET '/reviews'
     def index
       render json: Review.all, status: :ok

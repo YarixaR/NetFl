@@ -2,7 +2,7 @@ import React from "react";
 import { useState } from "react";
 import { Link, useHistory } from 'react-router-dom'
 
-function Login() {
+function Login({settingUserId}) {
   const [formData, setFormData] = useState({
     email: "",
     password: "",
@@ -31,7 +31,8 @@ function Login() {
       if (res.ok) {
         res.json().then((user) => {
           history.push(`/home`)
-          console.log(user)
+          settingUserId(user.id)
+          // console.log(user)
         });
       } else {
         res.json().then(json => setErrors(Object.entries(json.error)))

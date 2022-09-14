@@ -25,9 +25,9 @@ function UserPage(){
             }else {
                 res.json().then(data => setErrors(data.error))
             }
-        })
-       
-    },[])
+        })     
+    }, [])
+
 
     if(loading) return <h1>Loading</h1>
     if(errors) return <h1>{errors}</h1>

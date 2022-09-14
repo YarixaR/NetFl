@@ -11,6 +11,8 @@ import UserPage from "./UserPage";
 
 function App() {
   const [ movies, setMovies ] = useState([]);
+  const [ userId, setUserId ] = useState(0)
+  const [ userData, setUserData ] = useState([])
 
   useEffect(() => {
     fetch('/movies')
@@ -18,6 +20,17 @@ function App() {
     .then((data) => setMovies(data))
   }, [])
 
+  useEffect(() => {
+    fetch(`/users/${userId}`)
+    .then((res) => res.json())
+    .then((data) => setUserData(data))
+  }, [])
+
+  const settingUserId = (id) => {
+    setUserId(id)
+  }
+
+  console.log(userData.id)
 
   // const [isAuthenticated, setIsAuthenticated] = useState(false);
   // const [currentUser, setCurrentUser] = useState(null);
@@ -50,7 +63,7 @@ function App() {
           <SelectedMovie />
         </Route>
         <Route path="/movies">
-          <Movies movies={movies}/>
+          <Movies movies={movies} userId={userData}/>
         </Route>
         <Route path="/shows">
           <Shows shows={movies}/>
@@ -62,7 +75,7 @@ function App() {
           <UserPage />
         </Route>
         <Route exact path="/">
-          <Login />
+          <Login settingUserId={settingUserId}/>
         </Route>
       </Switch>
     </div>
