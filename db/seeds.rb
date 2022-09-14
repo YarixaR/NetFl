@@ -144,7 +144,7 @@ trailer: "https://www.youtube.com/watch?v=VxEEGi9V0kI?autoplay=1&mute=1"
 )
 m12 = Movie.create(
 title: "The Haunting of Bly Manor",
-image: "https://static.wikia.nocookie.net/the-haunting-of-hill-house3356/images/d/df/Hannah-Poster.jpg/revision/latest?cb=20200930135605",
+image: "https://occ-0-1001-420.1.nflxso.net/dnm/api/v6/E8vDc_W8CLv7-yMQu8KMEC7Rrr8/AAAABQDpDWVsSOKe-1vxGFp0LVWRod_HTSZD_Uzqygs8HArkHdZ_26EeQPzV7ImZCi2RiX6-iJ07H8aU6OuUjibYnEhVw6T6J9IddLaZ.jpg?r=71d",
 release_date: 2020,
 genre: 'movie',
 description: "After an au pair’s tragic death, Henry hires a young American nanny to care for his orphaned niece and nephew who reside at Bly Manor with the chef Owen, groundskeeper Jamie and housekeeper, Mrs. Grose.",
@@ -152,7 +152,7 @@ trailer: "https://www.youtube.com/watch?v=cxeiY2W03Mc?autoplay=1&mute=1"
 )
 m13 = Movie.create(
 title: "Stranger Things 4",
-image: "https://static.wikia.nocookie.net/strangerthings8338/images/7/74/Stranger_Things_4_Poster.jpg/revision/latest?cb=20220509161833",
+image: "https://m.media-amazon.com/images/M/MV5BMDZkYmVhNjMtNWU4MC00MDQxLWE3MjYtZGMzZWI1ZjhlOWJmXkEyXkFqcGdeQXVyMTkxNjUyNQ@@._V1_FMjpg_UX1000_.jpg",
 release_date: 2022,
 genre: 'show',
 description: "Still reeling from the events last year, the gang tries to move on with their lives. However, a threat is brewing both on Earth and the Upside Down.",

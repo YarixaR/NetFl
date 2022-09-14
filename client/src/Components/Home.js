@@ -4,19 +4,21 @@ import Card from './Card'
 
 function Home({movies}) {
 
-  console.log(movies[1])
+  // console.log(movies[1])
 
-  const movieFirst = movies[1]
-  const movieImage = movies[1].image
+  // const movieFirst = movies[1]
+  // const movieImage = movies[1].image
+
+ 
 
   return (
     <div>
       <NavBar />
       <div>
-        <img className="first-image" src={movieImage} alt="first movie"/>
+      <iframe width="560" height="315" src="https://www.youtube.com/embed/P-E-IGQCsPo?autoplay=1&mute=1" title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen></iframe>
+        {/* <img className="first-image" src={movieImage} alt="first movie"/>
         <h1>{movieFirst.title}</h1>
-        <h4>{movieFirst.description}</h4>
-        <button>Watch Now</button>
+        <h4>{movieFirst.description}</h4> */}
       </div>
       <div>
         {movies.map((movie) => <Card 
