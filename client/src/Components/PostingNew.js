@@ -1,6 +1,6 @@
 import { React, useState } from 'react'
 
-function PostingNew() {
+function PostingNew({renderingNewMovie}) {
   const [newData, setNewData] = useState({
     title: "",
     image: "",
@@ -27,7 +27,7 @@ function PostingNew() {
     })
     .then(res => {
       if(res.ok){
-        res.json().then(data => console.log(data))
+        res.json().then(data => renderingNewMovie(data))
       } else {
         //Display errors
         res.json().then(data => {

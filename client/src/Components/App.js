@@ -30,25 +30,9 @@ function App() {
     setUserId(id)
   }
 
-  // console.log(userData.id)
-
-  // const [isAuthenticated, setIsAuthenticated] = useState(false);
-  // const [currentUser, setCurrentUser] = useState(null);
-
-  // useEffect(() => {
-  //   fetch("/me").then((res) => {
-  //     if (res.ok) {
-  //       res.json().then((user) => {
-  //         setCurrentUser(user);
-  //         setIsAuthenticated(true);
-  //       });
-  //     }
-  //   });
-  // }, []);
-
-  // if (!isAuthenticated) {
-  //   return <div></div>;
-  // }
+  const renderingNewMovie = (newMovie) => {
+    setMovies([...movies, newMovie])
+  }
 
   return (
     <div>
@@ -69,7 +53,7 @@ function App() {
           <Shows shows={movies}/>
         </Route>
         <Route path="/newposting">
-          <PostingNew />
+          <PostingNew renderingNewMovie={renderingNewMovie}/>
         </Route>
         <Route exact path="/user/:id">
           <UserPage />
@@ -83,3 +67,24 @@ function App() {
 }
 
 export default App;
+
+
+  // console.log(userData.id)
+
+  // const [isAuthenticated, setIsAuthenticated] = useState(false);
+  // const [currentUser, setCurrentUser] = useState(null);
+
+  // useEffect(() => {
+  //   fetch("/me").then((res) => {
+  //     if (res.ok) {
+  //       res.json().then((user) => {
+  //         setCurrentUser(user);
+  //         setIsAuthenticated(true);
+  //       });
+  //     }
+  //   });
+  // }, []);
+
+  // if (!isAuthenticated) {
+  //   return <div></div>;
+  // }

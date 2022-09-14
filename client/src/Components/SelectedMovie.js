@@ -44,6 +44,8 @@ function SelectedMovie({userId}) {
       })    
         .then((resp) => resp.json())
         .then(data => console.log(data))
+
+    e.target.reset()
   }
 
   return (
