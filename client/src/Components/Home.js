@@ -1,26 +1,35 @@
 import React from 'react'
-import {useState, useEffect} from 'react'
-import NavBar from "./NavBar";
+import NavBar from "./NavBar"
+import Card from './Card'
 
-function Home() {
+function Home({movies}) {
 
-  const [ movies, setMovies ] = useState([]);
+  console.log(movies[1])
 
+  const movieFirst = movies[1]
+  const movieImage = movies[1].image
 
-  useEffect(() => {
-    fetch('/movies')
-    .then((res) => res.json())
-    .then((data) => setMovies(data))
-  }, [])
-
-
-  console.log(movies)
-
-  
   return (
     <div>
       <NavBar />
-      
+      <div>
+        <img className="first-image" src={movieImage} alt="first movie"/>
+        <h1>{movieFirst.title}</h1>
+        <h4>{movieFirst.description}</h4>
+        <button>Watch Now</button>
+      </div>
+      <div>
+        {movies.map((movie) => <Card 
+          key = {movie.id}
+          id = {movie.id}
+          title = {movie.title}
+          image = {movie.image}
+          release = {movie.release_date}
+          genre = {movie.genre}
+          description = {movie.description}
+          trailer = {movie.trailer}
+        />)}
+      </div>
     </div>
   )
 }

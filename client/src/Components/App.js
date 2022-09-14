@@ -1,10 +1,22 @@
-import React from "react";
+import { React, useEffect, useState } from "react";
 import { Route, Switch } from "react-router-dom";
 import Home from "./Home";
 import Login from "./Login";
 import SignUp from "./SignUp";
+import SelectedMovie from "./SelectedMovie"
+import Movies from "./Movies"
+import Shows from "./Shows"
 
 function App() {
+  const [ movies, setMovies ] = useState([]);
+
+  useEffect(() => {
+    fetch('/movies')
+    .then((res) => res.json())
+    .then((data) => setMovies(data))
+  }, [])
+
+
   // const [isAuthenticated, setIsAuthenticated] = useState(false);
   // const [currentUser, setCurrentUser] = useState(null);
 
@@ -27,18 +39,21 @@ function App() {
     <div>
       <Switch>
         <Route path="/home">
-          <Home />
+          <Home movies={movies}/>
         </Route>
         <Route path="/signup">
           <SignUp />
         </Route>
-        {/* <Route exact path="/shows">
-          <Shows />
+        <Route path="/movie/:id">
+          <SelectedMovie />
         </Route>
-        <Route exact path="/movies">
-          <Movies />
+        <Route path="/movies">
+          <Movies movies={movies}/>
         </Route>
-        <Route exact path="/user-page">
+        <Route path="/shows">
+          <Shows shows={movies}/>
+        </Route>
+        {/* <Route exact path="/user-page">
           <User />
         </Route> */}
         <Route exact path="/">
