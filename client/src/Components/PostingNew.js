@@ -49,10 +49,7 @@ function PostingNew({renderingNewMovie}) {
         <label>Release Date</label>
         <input type='text' name='release_date' placeholder='Released date' value={newData.release_date} onChange={handleChange}/>
         <label>Genre</label>
-        <select name='genre' onChange={handleChange}>
-          <option value={newData.genre}>Movie</option>
-          <option value={newData.genre}>Show</option>
-        </select>
+        <input type='text' name='genre' placeholder='Movie / Show' value={newData.genre} onChange={handleChange}/>
         <label>Description</label>
         <input type='text' name='description' placeholder='Description' value={newData.description} onChange={handleChange}/>
         <label>Trailer URL</label>
