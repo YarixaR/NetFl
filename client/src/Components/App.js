@@ -6,6 +6,8 @@ import SignUp from "./SignUp";
 import SelectedMovie from "./SelectedMovie"
 import Movies from "./Movies"
 import Shows from "./Shows"
+import PostingNew from "./PostingNew";
+import UserPage from "./UserPage";
 
 function App() {
   const [ movies, setMovies ] = useState([]);
@@ -53,9 +55,12 @@ function App() {
         <Route path="/shows">
           <Shows shows={movies}/>
         </Route>
-        {/* <Route exact path="/user-page">
-          <User />
-        </Route> */}
+        <Route path="/newposting">
+          <PostingNew />
+        </Route>
+        <Route exact path="/user/:id">
+          <UserPage />
+        </Route>
         <Route exact path="/">
           <Login />
         </Route>

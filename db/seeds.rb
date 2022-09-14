@@ -21,6 +21,9 @@ Review.reset_pk_sequence
 
 
 # Creating Users ()
+
+User.create(name: 'Yoojin', email: 'yoojin@gmail.com', password: '123', avatar: 'https://i.pinimg.com/564x/4a/96/aa/4a96aa2357201c454bacf2119f690a89.jpg', admin: true )
+
 # emails = ['hello@gmail.com', 'poketworld@gmail.com', 'movie@gmail.com']
 # avatars = ['https://i.pinimg.com/564x/3b/c8/78/3bc878dcaf0830af8a322117097bc39f.jpg',
 #   'https://i.pinimg.com/564x/4a/96/aa/4a96aa2357201c454bacf2119f690a89.jpg',

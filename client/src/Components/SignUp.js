@@ -37,7 +37,7 @@ function SignUp() {
         if(res.ok){
             res.json().then(user => {
               console.log(user)
-              history.push(`/home`)
+              history.push(`/`)
             })
         }else {
             res.json().then(json => setErrors(Object.entries(json.error)))

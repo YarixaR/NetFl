@@ -5,7 +5,7 @@ Rails.application.routes.draw do
   get '/me', to: "users#show"
   
   resources :reviews
-  resources :movies, only: [:index, :show]
+  resources :movies, only: [:index, :show, :create]
 
   resources :users, only: [:show, :create]
 

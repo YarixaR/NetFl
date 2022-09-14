@@ -9,6 +9,7 @@ function NavBar() {
             <NavLink exact to = "/home">Home</NavLink>
             <NavLink exact to = "/movies">Movies</NavLink>
             <NavLink exact to = "/shows">Shows</NavLink>
+            <NavLink exact to = "/user/:id">User</NavLink>
         </div>
     )
 }

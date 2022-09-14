@@ -23,3 +23,4 @@ function MovieCard({id, title, image, release, genre, description, trailer}) {
 }
 
 export default  MovieCard
+
