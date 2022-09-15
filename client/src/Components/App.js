@@ -20,9 +20,7 @@ function App() {
     fetch('/movies')
     .then((res) => res.json())
     .then((data) => setMovies(data))
-  }, [])
-
-
+  }, [ userId ])
 
   useEffect(() => {
     fetch(`/users/${userId}`)
@@ -54,6 +52,13 @@ function App() {
     setReviews(updatedResource)
   }
 
+  const renderingWithoutDeleted = (deletedReview) => {
+    const updatedReviews = reviews?.filter((review) => {
+      if (review.id !== deletedReview.id) return true
+    })
+    setReviews(updatedReviews)
+  }
+
   return (
     <div>
       <Switch>
@@ -76,7 +81,12 @@ function App() {
           <PostingNew renderingNewMovie={renderingNewMovie}/>
         </Route>
         <Route exact path="/user/:id">
-          <UserPage reviews={reviews} renderingNewReviews={renderingNewReviews}/>
+          <UserPage
+            reviews={reviews}
+            movies={movies}
+            renderingNewReviews={renderingNewReviews}
+            renderingWithoutDeleted={renderingWithoutDeleted }  
+          />
         </Route>
         <Route exact path="/">
           <Login settingUserId={settingUserId}/>

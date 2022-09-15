@@ -43,13 +43,9 @@ function SelectedMovie({userId}) {
       })    
         .then((resp) => resp.json())
         .then(data => renderNewComment(data))
-        .then(window.location.reload(false))
+        // .then(window.location.reload(false))
 
     e.target.reset()
-  }
-
-  const renderNewComment = (newComment) => {
-    setComment([...comment, newComment])
   }
 
   const navigateToUserPage = () => {

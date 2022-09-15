@@ -2,12 +2,11 @@ import { React, useState, useEffect, useRef } from 'react'
 import { useHistory } from 'react-router-dom'
 import { FaStar } from 'react-icons/fa'
 
-function UserMovieCard({movieId, title, image, user, reviews, renderingNewReviews}) {
+function UserMovieCard({movieId, title, image, user, reviews, renderingNewReviews, renderingWithoutDeleted, updatedMovieCard}) {
 
   const [rating, setRating] = useState(0)
   const [hover, setHover] = useState(null);
   const [exsitingReviewId, setExsitingReviewId] = useState("")
-  // const [renderedReviews, setRenderedReviews] = useState(filteredReviews)
 
   const [editedComment, setEditedComment] = useState("")
   const [isClicked, setIsClicked] = useState(false)
@@ -21,7 +20,7 @@ function UserMovieCard({movieId, title, image, user, reviews, renderingNewReview
       setExsitingReviewId(id)
     }
   }
-
+  
   const handleChange = (e) => {
     setEditedComment(e.target.value)
   }
@@ -41,20 +40,24 @@ function UserMovieCard({movieId, title, image, user, reviews, renderingNewReview
       .then(updatedObj => renderingNewReviews(updatedObj))
   }
 
-  const handleDelete = (reviewId) => {
-    fetch(`/reviews/${reviewId}`, {
+  const handleDelete = (review) => {
+    const id = review.id
+    fetch(`/reviews/${id}`, {
       method: 'DELETE'
-    }).then()
+    }).then(() => { 
+      renderingWithoutDeleted(review)
+      updatedMovieCard(review)
+    })
   }
+
+  const filteredReviews = reviews?.filter((review) => {
+    if (review.movie_id === movieId && review.user_id === user.id) return true
+  })
 
   const history = useHistory()
   const handleClick = () => {
     history.push(`/movie/${movieId}`)
   }
-
-  const filteredReviews = reviews?.filter((review) => {
-      if (review.movie_id === movieId && review.user_id === user.id) return true
-    })
 
   const starObject = {1:'⭐', 2:'⭐⭐', 3:'⭐⭐⭐', 4:'⭐⭐⭐⭐', 5:'⭐⭐⭐⭐⭐' }
   
@@ -65,7 +68,7 @@ function UserMovieCard({movieId, title, image, user, reviews, renderingNewReview
         {filteredReviews == false ? null : filteredReviews?.map((review) =>
           <div>
             <h3 ref={refOne} onClick={e => handleExsitingReview(e, review.id)}>{review.comment} {starObject[review.rating]}</h3>
-            <button onClick={e => handleDelete(review.id)}>Delete</button>
+            <button onClick={e => handleDelete(review)}>Delete</button>
           </div>
         )}
         {isClicked
