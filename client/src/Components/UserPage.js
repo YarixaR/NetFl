@@ -39,7 +39,7 @@ function UserPage(){
             <img width="auto" height="600" src={'https://cdn.arstechnica.net/wp-content/uploads/2022/07/netflix.jpg'} alt='background'/>
                 {user.movies.map(movie => <UserMovieCard 
                     key = {movie.id}
-                    id = {movie.id}
+                    movieId = {movie.id}
                     title = {movie.title}
                     image = {movie.image}
                     user = {user}

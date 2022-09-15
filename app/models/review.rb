@@ -4,5 +4,5 @@ class Review < ApplicationRecord
 
   validates :comment, presence: true, length: {maximum: 100}
   validates :rating, numericality: {greater_than: 0, less_than_or_equal_to: 5}
-  validates :user, uniqueness: {scope: :movie}
+  # validates :user, uniqueness: {scope: :movie}
 end

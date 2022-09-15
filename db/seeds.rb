@@ -195,17 +195,17 @@ trailer: "https://www.youtube.com/embed/gENO66DUgaQ?autoplay=1&mute=1"
 
 # Creating Reviews
 
-movieIds = Movie.pluck(:id)
-userIds = User.pluck(:id)
+# movieIds = Movie.pluck(:id)
+# userIds = User.pluck(:id)
 
-20.times do
-  Review.create(
-    rating: rand(1..5),
-    comment: Faker::Movies::BackToTheFuture.quote,
-    movie_id: movieIds.sample,
-    user_id: userIds.sample
-  )
-end
+# 20.times do
+#   Review.create(
+#     rating: rand(1..5),
+#     comment: Faker::Movies::BackToTheFuture.quote,
+#     movie_id: movieIds.sample,
+#     user_id: userIds.sample
+#   )
+# end
 
 
 puts "Seeding complete 🌼"
