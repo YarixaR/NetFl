@@ -41,14 +41,15 @@ function UserPage({reviews, renderingNewReviews}){
     if(errors) return <h1>{errors}</h1>
     return (
         <div className='userPage'>
-          <NavBar avatar ={user.avatar}/>
+          <NavBar />
+          <div className='h-12 pt-5 flex items-center overflow-hidden h-screen justify-center'>
+            <h1 class="font-medium leading-tight pt-3 text-5xl">Hello, {user.name}</h1>
             <img
                 src={user.avatar}
-                class="rounded-full w-20"
+                class="rounded-full w-20 relative ml-10 "
                 alt="Avatar"
             />
-            <h1 class="font-medium leading-tight text-5xl">Hello, {user.name}</h1>
-            {/* <img width="auto" height="600" src={'https://cdn.arstechnica.net/wp-content/uploads/2022/07/netflix.jpg'} alt='background'/> */}
+            </div>
                 {user.movies.map(movie => <UserMovieCard 
                     key = {movie.id}
                     movieId = {movie.id}

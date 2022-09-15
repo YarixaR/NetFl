@@ -134,17 +134,21 @@ h1{
   } 
 
   .home{
-    background-color: rgba(0, 0, 0, 0.8);;
+    background-color: rgba(0, 0, 0, 0.7);;
   }
   
   .movies{
-    background-color: rgba(0, 0, 0, 0.8);;
+    background-color: rgba(0, 0, 0, 0.7);;
   }
 
   .shows{
-    background-color: rgba(0, 0, 0, 0.8);;
+    background-color: rgba(0, 0, 0, 0.7);;
   }
 
   .userPage{
-    background-color: rgba(0, 0, 0, 0.8);;
+    background-color: rgba(0, 0, 0, 0.7);;
   }
+
+  /* .active {
+    border: 2px solid white;
+  } */
