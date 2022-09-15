@@ -27,7 +27,6 @@ function SelectedMovie({userId}) {
     setComment(e.target.value)
   }
 
-
   const handleSubmit = (e) => {
     e.preventDefault()
     fetch('/reviews', {
@@ -43,10 +42,17 @@ function SelectedMovie({userId}) {
       }),
       })    
         .then((resp) => resp.json())
-        .then(data => console.log(data))
+        .then(data => renderNewComment(data))
+        .then(window.location.reload(false))
 
     e.target.reset()
   }
+
+  const renderNewComment = (newComment) => {
+    setComment([...comment, newComment])
+  }
+
+  const starObject = {1:'⭐', 2:'⭐⭐', 3:'⭐⭐⭐', 4:'⭐⭐⭐⭐', 5:'⭐⭐⭐⭐⭐' }
 
   return (
     <div>
@@ -82,6 +88,9 @@ function SelectedMovie({userId}) {
         })}
         <button>Submit</button>
       </form>
+      <div>
+        {movie.reviews == false ? null : movie.reviews?.map((review) => <h3>{review.comment} {starObject[review.rating]}</h3>)}
+      </div>
       <button onClick={handleClick}>Return to Home</button>
     </div>
   )
@@ -89,6 +98,3 @@ function SelectedMovie({userId}) {
 
 export default SelectedMovie
 
-
-// t.integer "rating"
-// t.string "comment"

@@ -2,7 +2,7 @@ import { React } from 'react'
 import NavBar from "./NavBar"
 import Card from './Card'
 
-function Movies({movies, userId}) {
+function Movies({movies}) {
 
   return (
     <div>
@@ -16,7 +16,6 @@ function Movies({movies, userId}) {
         genre = {movie.genre}
         description = {movie.description}
         trailer = {movie.trailer}
-        userId = {userId}
         /> : null
         )
       }
