@@ -2,7 +2,7 @@ import { React, useState, useEffect, useRef } from 'react'
 import { useHistory } from 'react-router-dom'
 import { FaStar } from 'react-icons/fa'
 
-function UserMovieCard({id, title, image, user}) {
+function UserMovieCard({movieId, title, image, user}) {
 
   const [rating, setRating] = useState(0)
   const [hover, setHover] = useState(null);
@@ -27,21 +27,21 @@ function UserMovieCard({id, title, image, user}) {
       setIsClicked(!isClicked)
     } console.log(e.target.value)
   }
-
+ console.log(isClicked)
   const handleChange = (e) => {
     setEditedComment(e.target.value)
   }
 
   const handleSubmit = (e) => {
     e.preventDefault()
-    fetch(`/reviews/${id}`, {
+    fetch(`/reviews/${1}`, {
       method: 'PATCH',
       headers: {"Content-Type": "application/json" },
       body: JSON.stringify({
         rating: rating-1,
         comment: editedComment,
         user_id: user.id,
-        movie_id: id
+        movie_id: movieId
       })
     }).then((resp) => resp.json())
       .then(data => console.log(data))
@@ -50,14 +50,14 @@ function UserMovieCard({id, title, image, user}) {
 
   const history = useHistory()
   const handleClick = () => {
-    history.push(`/movie/${id}`)
+    history.push(`/movie/${movieId}`)
   }
 
   // const reviewsToDisplay = user.reviews.filter((review) => {
   //     if (review.movie_id === id) return true
   // })
   const reviewsToDisplay = reviews?.filter((review) => {
-    if (review.movie_id === id && review.user_id === user.id) return true
+    if (review.movie_id === movieId && review.user_id === user.id) return true
   })
 
   const starObject = {1:'⭐', 2:'⭐⭐', 3:'⭐⭐⭐', 4:'⭐⭐⭐⭐', 5:'⭐⭐⭐⭐⭐' }
