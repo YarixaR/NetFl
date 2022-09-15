@@ -21,12 +21,14 @@ function UserMovieCard({movieId, title, image, user}) {
 
   const refOne = useRef(null)
 
-  const handleExsitingReview = (e) => {
+  const handleExsitingReview = (e, id) => {
     e.preventDefault()
     if(refOne.current.contains(e.target)) {
       setIsClicked(!isClicked)
-    } console.log(e.target.value)
+      setExsitingReviewId(id)
+    }
   }
+
  console.log(isClicked)
   const handleChange = (e) => {
     setEditedComment(e.target.value)
@@ -34,7 +36,7 @@ function UserMovieCard({movieId, title, image, user}) {
 
   const handleSubmit = (e) => {
     e.preventDefault()
-    fetch(`/reviews/${1}`, {
+    fetch(`/reviews/${exsitingReviewId}`, {
       method: 'PATCH',
       headers: {"Content-Type": "application/json" },
       body: JSON.stringify({
@@ -67,7 +69,7 @@ function UserMovieCard({movieId, title, image, user}) {
         <img src={image} alt="movie" onClick={handleClick}/>
         <h2>{title}</h2>
         {reviewsToDisplay == false ? null : reviewsToDisplay?.map((review) => 
-        <h3 ref={refOne} value={review.id} onClick={handleExsitingReview}>{review.comment} {starObject[review.rating]}</h3>)}
+        <h3 ref={refOne} onClick={e => handleExsitingReview(e, review.id)}>{review.comment} {starObject[review.rating]}</h3>)}
         {isClicked
           ? <form onSubmit={handleSubmit}>
               <input type='text' name='comment' placeholder='Please submit new comment' value={editedComment} onChange={handleChange}></input>
