@@ -1,20 +1,150 @@
-body {
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* @import url('https://fonts.googleapis.com/css2?family=Mukta:wght@700&display=swap');
+:root {
+  --transition: all 0.3s linear;
+  --spacing: 0.10rem;
+  --radius: 0.5rem;
+  
+}
+
+input[type="radio"] {
+  display: none;
+}
+
+.star {
+  cursor: pointer;
+  transition: color 200ms;
+}
+
+.navbar{
+  background:  #333;
+  height: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.2rem;
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  padding: 0;
+  padding: 14px 16px;
+ 
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+.navText{
+  text-transform: uppercase;
+  background: transparent;
+  color: white;
+  padding: 0.375rem 0.75rem;
+  letter-spacing: var(--spacing);
+  display: inline-block;
+  
+  font-size: 0.875rem;
+ cursor: pointer;
+
+  border-radius: var(--radius);
+
+  text-decoration: none;
 }
 
-.first-image {
-  width:100%;
-  height: 480px;
-  object-fit: cover;
-  filter: brightness(40%); 
+.navText:hover:not(.active) {
+  background-color: #111;
 }
+.active {
+  border: 2px solid white;
+}
+
+body{
+  background-color: black;
+  color: white;
+  background-image: url("https://media-assets-05.thedrum.com/cache/images/thedrum-prod/s3-news-tmp-10557-netflixa--default--1280.jpg");
+  
+} 
+
+.home{
+  background-color: rgba(0, 0, 0, 0.899);;
+}
+
+
+.loginForm{
+  background-color: rgba(0, 0, 0, 0.899);
+  width: 400px;
+  height: 550px;
+  margin-top: 60px;
+  margin-left: 350px;
+  align-items: center;
+  padding: 50px;
+  border-radius: 20px;
+
+}
+
+h1{
+  letter-spacing: var(--spacing);
+  text-align-last: center;
+
+}
+
+.loginForm input{
+  width: 370px;
+  height: 30px;
+  border-radius: 60px;
+  margin-top: 15px;
+  box-shadow: inset 0px 10px 10px 0px #888;
+} */
+
+/* 
+.login{
+  
+  background-image: url("https://media-assets-05.thedrum.com/cache/images/thedrum-prod/s3-news-tmp-10557-netflixa--default--1280.jpg");
+  position: fixed;
+  margin-left: auto;
+  margin-right: auto;
+  width: 100%;
+} */
+
+/* .signUp{
+  background-image: url("https://media-assets-05.thedrum.com/cache/images/thedrum-prod/s3-news-tmp-10557-netflixa--default--1280.jpg");
+  position: fixed;
+  margin-left: auto;
+  margin-right: auto;
+  width: 100%;
+} */
+
+/* display: block;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none; */
+
+  /* src="https://media-assets-05.thedrum.com/cache/images/thedrum-prod/s3-news-tmp-10557-netflixa--default--1280.jpg"  */
+
+
+  body{
+    background-color: black;
+    color: white;
+    height: 800px;
+    background-image: linear-gradient(to bottom, rgba(0,0,0,0), rgba(0,0,0,1)), url("https://media-assets-05.thedrum.com/cache/images/thedrum-prod/s3-news-tmp-10557-netflixa--default--1280.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: auto;
+    
+    
+
+  } 
+
+  .home{
+    background-color: rgba(0, 0, 0, 0.8);;
+  }
+  
+  .movies{
+    background-color: rgba(0, 0, 0, 0.8);;
+  }
+
+  .shows{
+    background-color: rgba(0, 0, 0, 0.8);;
+  }
+
+  .userPage{
+    background-color: rgba(0, 0, 0, 0.8);;
+  }

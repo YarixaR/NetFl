@@ -28,6 +28,7 @@ function UserPage({reviews, renderingNewReviews}){
             }
         })     
     }, [])
+    
 
     // const renderUpdatedMovieCards = (deletedMovieId) => {
     //     const updatedList = user.movies?.filter((movie) => 
@@ -39,12 +40,16 @@ function UserPage({reviews, renderingNewReviews}){
     if(loading) return <h1>Loading</h1>
     if(errors) return <h1>{errors}</h1>
     return (
-        <div>
-          <NavBar />
-            <img width="auto" height="80" src={user.avatar} alt='avatar'/>
-            <h1>Hello, {user.name}</h1>
-            <img width="auto" height="600" src={'https://cdn.arstechnica.net/wp-content/uploads/2022/07/netflix.jpg'} alt='background'/>
-                {user.movies?.map(movie => <UserMovieCard 
+        <div className='userPage'>
+          <NavBar avatar ={user.avatar}/>
+            <img
+                src={user.avatar}
+                class="rounded-full w-20"
+                alt="Avatar"
+            />
+            <h1 class="font-medium leading-tight text-5xl">Hello, {user.name}</h1>
+            {/* <img width="auto" height="600" src={'https://cdn.arstechnica.net/wp-content/uploads/2022/07/netflix.jpg'} alt='background'/> */}
+                {user.movies.map(movie => <UserMovieCard 
                     key = {movie.id}
                     movieId = {movie.id}
                     title = {movie.title}
@@ -59,11 +64,3 @@ function UserPage({reviews, renderingNewReviews}){
 
 export default UserPage
 
-                // <div className="user-page">
-                //     <img src={movie.image} alt={movie.name} />
-                //     <h4>Name: {movie.name}</h4>
-                //     <h4>Release Date: {movie.release_date}</h4>
-                //     <h4>Description: {movie.description}</h4>
-                //     {/* <iframe width="560" height="315" src={movie.trailer} title="YouTube video player" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen></iframe> */}
-                // </div>
-                // ))}

@@ -10,8 +10,8 @@ function Home({movies, userId}) {
   // const movieImage = movies[1].image
 
   return (
-    <div>
-      <NavBar />
+    <div className='home' >
+      <NavBar/>
       <div>
       <iframe width="560" height="315" src="https://www.youtube.com/embed/P-E-IGQCsPo?autoplay=1&mute=1" title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen></iframe>
         {/* <img className="first-image" src={movieImage} alt="first movie"/>

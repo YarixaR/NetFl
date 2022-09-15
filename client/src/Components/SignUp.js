@@ -46,39 +46,48 @@ function SignUp() {
   }
 
   return (
-    <div>
-      <form onSubmit={handleSubmit}>
-        <label></label>  
-        <input 
-          type='text' 
-          name='email'
-          placeholder='Email'
-          value={email} 
-          onChange={handleChange} />     
-        <label></label>
-        <input 
-          type='text' 
-          name='name' 
-          placeholder='Name'
-          value={name} 
-          onChange={handleChange} /> 
-        <label></label>
-        <input 
-          type='password' 
-          name='password' 
-          placeholder='Password'
-          value={password} 
-          onChange={handleChange} />
-        <label></label>
-        <input 
-          type='text' 
-          name='avatar' 
-          placeholder='Avatar Url'
-          value={avatar} 
-          onChange={handleChange} />
-        <input type='submit' value='Sign Up' />
-      </form>
-      {errors? errors.map(error => <div> {error} </div>) :null}
+    <div className="flex flex-wrap justify-center mt-20">
+      <div className="w-full max-w-sm">
+        <div>
+          <form onSubmit={handleSubmit} className="shadow-md rounded-lg bg-black opacity-90 h-96 rounded px-8 pt-6 pb-8 mb-4 ">
+          <section>
+              <h1 className="text-xl dark:text-white font-bold text-center">
+                Sign Up
+              </h1>
+            </section>
+            <input 
+              className="rounded-lg ml-10 mt-5 w-60 p-2 bg-gray-700 focus:border-blue-500 focus:bg-gray-800 focus:outline-none"
+              type='text' 
+              name='email'
+              placeholder='Email'
+              value={email} 
+              onChange={handleChange} />     
+            <input 
+              className="rounded-lg ml-10 mt-5 w-60 p-2 bg-gray-700 focus:border-blue-500 focus:bg-gray-800 focus:outline-none"
+              type='text' 
+              name='name' 
+              placeholder='Name'
+              value={name} 
+              onChange={handleChange} /> 
+            <input 
+              className="rounded-lg ml-10 mt-5 w-60 p-2 bg-gray-700 focus:border-blue-500 focus:bg-gray-800 focus:outline-none"
+              type='password' 
+              name='password' 
+              placeholder='Password'
+              value={password} 
+              onChange={handleChange} />
+            <input 
+              className="rounded-lg ml-10 mt-5 w-60 p-2 bg-gray-700 focus:border-blue-500 focus:bg-gray-800 focus:outline-none"
+              type='text' 
+              name='avatar' 
+              placeholder='Avatar Url'
+              value={avatar} 
+              onChange={handleChange} />
+            <button className="w-full mt-5  opacity-100 my-5 py-2 bg-red-500 shadow-lg shadow-red-500/50 hover:shadow-red-500-40 text-white font-semibold rounded-lg" type='submit'>Sign Up</button>
+          </form>
+          {errors? errors.map(error => <div> {error} </div>) :null}
+        </div>
+      </div>
     </div>
   )
 }
