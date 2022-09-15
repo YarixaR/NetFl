@@ -42,8 +42,12 @@ function SelectedMovie({userId}) {
       }),
       })    
         .then((resp) => resp.json())
-        .then(data => renderNewComment(data))
-        // .then(window.location.reload(false))
+        // .then((review) => {
+        //   const newMovie = { ...movie }
+        //   newMovie.reviews = review
+        //   setMovie(newMovie)
+        // })
+
 
     e.target.reset()
   }

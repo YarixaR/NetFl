@@ -29,12 +29,12 @@ function UserPage({reviews, renderingNewReviews, renderingWithoutDeleted}){
         })     
     }, [])
 
-    const updatedMovieCard = (deletedReview) => {
-        const updatedUserData = user.movies?.filter((movie) => {
-            if (movie.id !== deletedReview.movie_id) return true
-          })
+    // const updatedMovieCard = (deletedReview) => {
+    //     const updatedUserData = user.movies?.filter((movie) => {
+    //         if (movie.id !== deletedReview.movie_id) return true
+    //       })
           
-    }
+    // }
 
     if(loading) return <h1>Loading</h1>
     if(errors) return <h1>{errors}</h1>
@@ -56,9 +56,9 @@ function UserPage({reviews, renderingNewReviews, renderingWithoutDeleted}){
                     image = {movie.image}
                     user = {user}
                     reviews = {reviews}
+                    setUser = {setUser}
                     renderingNewReviews = {renderingNewReviews}
                     renderingWithoutDeleted = {renderingWithoutDeleted}
-                    updatedMovieCard = {updatedMovieCard}
                 />)}
         </div>
     )
