@@ -10,9 +10,10 @@ import PostingNew from "./PostingNew";
 import UserPage from "./UserPage";
 
 function App() {
-  const [ movies, setMovies ] = useState([]);
+  const [ movies, setMovies ] = useState([])
   const [ userId, setUserId ] = useState(0)
   const [ userData, setUserData ] = useState([])
+  const [ reviews, setReviews ] =useState([])
 
   useEffect(() => {
     fetch('/movies')
@@ -26,12 +27,28 @@ function App() {
     .then((data) => setUserData(data))
   }, [])
 
+  useEffect(() => {
+    fetch('/reviews')
+    .then((res) => res.json())
+    .then((data) => setReviews(data))
+  }, [])
+
   const settingUserId = (id) => {
     setUserId(id)
   }
 
   const renderingNewMovie = (newMovie) => {
     setMovies([...movies, newMovie])
+  }
+
+  const renderingNewReviews = (updatedObj) => {
+    const updatedResource = reviews
+      ? reviews.map((review) => {
+      if (review.id === updatedObj.id) {
+        return updatedObj
+      } else {return review}
+    }) : null
+    setReviews(updatedResource)
   }
 
   return (
@@ -56,7 +73,7 @@ function App() {
           <PostingNew renderingNewMovie={renderingNewMovie}/>
         </Route>
         <Route exact path="/user/:id">
-          <UserPage />
+          <UserPage reviews={reviews} renderingNewReviews={renderingNewReviews}/>
         </Route>
         <Route exact path="/">
           <Login settingUserId={settingUserId}/>

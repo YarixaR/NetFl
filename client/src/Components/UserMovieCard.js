@@ -2,19 +2,12 @@ import { React, useState, useEffect, useRef } from 'react'
 import { useHistory } from 'react-router-dom'
 import { FaStar } from 'react-icons/fa'
 
-function UserMovieCard({movieId, title, image, user, renderUpdatedMovieCards}) {
+function UserMovieCard({movieId, title, image, user, reviews, renderingNewReviews}) {
 
   const [rating, setRating] = useState(0)
   const [hover, setHover] = useState(null);
-
-  const [reviews, setReviews] = useState()
   const [exsitingReviewId, setExsitingReviewId] = useState("")
-
-  useEffect(() => {
-    fetch('/reviews')
-    .then((res) => res.json())
-    .then((data) => setReviews(data))
-  }, [])
+  // const [renderedReviews, setRenderedReviews] = useState(filteredReviews)
 
   const [editedComment, setEditedComment] = useState("")
   const [isClicked, setIsClicked] = useState(false)
@@ -48,20 +41,10 @@ function UserMovieCard({movieId, title, image, user, renderUpdatedMovieCards}) {
       .then(updatedObj => renderingNewReviews(updatedObj))
   }
 
-  const renderingNewReviews = (updatedObj) => {
-    const updatedResource = reviews
-      ? reviews.map((review) => {
-      if (review.id === updatedObj.id) {
-        return updatedObj
-      } else {return review}
-    }) : null
-    setReviews(updatedResource)
-  }
-
   const handleDelete = (reviewId) => {
     fetch(`/reviews/${reviewId}`, {
       method: 'DELETE'
-    }).then(() => renderUpdatedMovieCards(movieId))
+    }).then()
   }
 
   const history = useHistory()
@@ -69,9 +52,9 @@ function UserMovieCard({movieId, title, image, user, renderUpdatedMovieCards}) {
     history.push(`/movie/${movieId}`)
   }
 
-  const reviewsToDisplay = reviews?.filter((review) => {
-    if (review.movie_id === movieId && review.user_id === user.id) return true
-  })
+  const filteredReviews = reviews?.filter((review) => {
+      if (review.movie_id === movieId && review.user_id === user.id) return true
+    })
 
   const starObject = {1:'⭐', 2:'⭐⭐', 3:'⭐⭐⭐', 4:'⭐⭐⭐⭐', 5:'⭐⭐⭐⭐⭐' }
   
@@ -79,10 +62,10 @@ function UserMovieCard({movieId, title, image, user, renderUpdatedMovieCards}) {
     <div>
         <img src={image} alt="movie" onClick={handleClick}/>
         <h2>{title}</h2>
-        {reviewsToDisplay == false ? null : reviewsToDisplay?.map((review) =>
+        {filteredReviews == false ? null : filteredReviews?.map((review) =>
           <div>
             <h3 ref={refOne} onClick={e => handleExsitingReview(e, review.id)}>{review.comment} {starObject[review.rating]}</h3>
-            <button onClick={handleDelete(review.id)}>Delete</button>
+            <button onClick={e => handleDelete(review.id)}>Delete</button>
           </div>
         )}
         {isClicked

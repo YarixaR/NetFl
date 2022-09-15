@@ -3,7 +3,7 @@ import { useParams } from 'react-router-dom'
 import NavBar from "./NavBar"
 import UserMovieCard from './UserMovieCard'
 
-function UserPage(){
+function UserPage({reviews, renderingNewReviews}){
 
     // ! This page will render a USER's liked MOVIES and if a review
     // ! is created, should render the REVIEWS (review div not made yet)
@@ -29,12 +29,12 @@ function UserPage(){
         })     
     }, [])
 
-    const renderUpdatedMovieCards = (deletedMovieId) => {
-        const updatedList = user.movies?.filter((movie) => 
-            movie.id !== deletedMovieId
-        )
-        setUser(updatedList)
-    }
+    // const renderUpdatedMovieCards = (deletedMovieId) => {
+    //     const updatedList = user.movies?.filter((movie) => 
+    //         movie.id !== deletedMovieId
+    //     )
+    //     setUser(updatedList)
+    // }
 
     if(loading) return <h1>Loading</h1>
     if(errors) return <h1>{errors}</h1>
@@ -50,7 +50,8 @@ function UserPage(){
                     title = {movie.title}
                     image = {movie.image}
                     user = {user}
-                    renderUpdatedMovieCards = {renderUpdatedMovieCards}
+                    reviews = {reviews}
+                    renderingNewReviews = {renderingNewReviews}
                 />)}
         </div>
     )
