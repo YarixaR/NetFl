@@ -52,6 +52,10 @@ function SelectedMovie({userId}) {
     setComment([...comment, newComment])
   }
 
+  const navigateToUserPage = () => {
+    history.push(`/user/${userId}`)
+  }
+
   const starObject = {1:'⭐', 2:'⭐⭐', 3:'⭐⭐⭐', 4:'⭐⭐⭐⭐', 5:'⭐⭐⭐⭐⭐' }
 
   return (
@@ -89,7 +93,7 @@ function SelectedMovie({userId}) {
         <button>Submit</button>
       </form>
       <div>
-        {movie.reviews == false ? null : movie.reviews?.map((review) => <h3>{review.comment} {starObject[review.rating]}</h3>)}
+        {movie.reviews == false ? null : movie.reviews?.map((review) => <h3 onClick={navigateToUserPage}>{review.comment} {starObject[review.rating]}</h3>)}
       </div>
       <button onClick={handleClick}>Return to Home</button>
     </div>
