@@ -29,6 +29,13 @@ function UserPage(){
         })     
     }, [])
 
+    const renderUpdatedMovieCards = (deletedMovieId) => {
+        const updatedList = user.movies?.filter((movie) => 
+            movie.id !== deletedMovieId
+        )
+        setUser(updatedList)
+    }
+
     if(loading) return <h1>Loading</h1>
     if(errors) return <h1>{errors}</h1>
     return (
@@ -37,16 +44,14 @@ function UserPage(){
             <img width="auto" height="80" src={user.avatar} alt='avatar'/>
             <h1>Hello, {user.name}</h1>
             <img width="auto" height="600" src={'https://cdn.arstechnica.net/wp-content/uploads/2022/07/netflix.jpg'} alt='background'/>
-                {user.movies.map(movie => <UserMovieCard 
+                {user.movies?.map(movie => <UserMovieCard 
                     key = {movie.id}
                     movieId = {movie.id}
                     title = {movie.title}
                     image = {movie.image}
                     user = {user}
+                    renderUpdatedMovieCards = {renderUpdatedMovieCards}
                 />)}
-            {/* <div>
-                {user.reviews == false ? null : user.reviews?.map((review) => <h3>{review.comment} {starObject[review.rating]}</h3>)}
-            </div> */}
         </div>
     )
 }
