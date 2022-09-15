@@ -47,7 +47,7 @@ function App() {
           <SelectedMovie userId={userData.id}/>
         </Route>
         <Route path="/movies">
-          <Movies movies={movies} userId={userData.id}/>
+          <Movies movies={movies}/>
         </Route>
         <Route path="/shows">
           <Shows shows={movies}/>

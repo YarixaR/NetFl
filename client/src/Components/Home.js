@@ -9,8 +9,6 @@ function Home({movies, userId}) {
   // const movieFirst = movies[1]
   // const movieImage = movies[1].image
 
- 
-
   return (
     <div>
       <NavBar />
