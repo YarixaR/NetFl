@@ -5,7 +5,7 @@ import Card from './Card'
 function Movies({movies}) {
 
   return (
-    <div>
+    <div className='movies'>
       <NavBar />
       {movies.map(movie => movie.genre == "movie" ? <Card 
         key = {movie.id}

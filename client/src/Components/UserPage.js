@@ -28,15 +28,19 @@ function UserPage(){
             }
         })     
     }, [])
-
+    
     if(loading) return <h1>Loading</h1>
     if(errors) return <h1>{errors}</h1>
     return (
-        <div>
-          <NavBar />
-            <img width="auto" height="80" src={user.avatar} alt='avatar'/>
-            <h1>Hello, {user.name}</h1>
-            <img width="auto" height="600" src={'https://cdn.arstechnica.net/wp-content/uploads/2022/07/netflix.jpg'} alt='background'/>
+        <div className='userPage'>
+          <NavBar avatar ={user.avatar}/>
+            <img
+                src={user.avatar}
+                class="rounded-full w-20"
+                alt="Avatar"
+            />
+            <h1 class="font-medium leading-tight text-5xl">Hello, {user.name}</h1>
+            {/* <img width="auto" height="600" src={'https://cdn.arstechnica.net/wp-content/uploads/2022/07/netflix.jpg'} alt='background'/> */}
                 {user.movies.map(movie => <UserMovieCard 
                     key = {movie.id}
                     movieId = {movie.id}

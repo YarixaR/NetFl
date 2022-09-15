@@ -14,11 +14,14 @@ function App() {
   const [ userId, setUserId ] = useState(0)
   const [ userData, setUserData ] = useState([])
 
+
   useEffect(() => {
     fetch('/movies')
     .then((res) => res.json())
     .then((data) => setMovies(data))
   }, [])
+
+
 
   useEffect(() => {
     fetch(`/users/${userId}`)
