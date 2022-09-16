@@ -121,13 +121,21 @@ h1{
 
 
   body{
-    background-color: black;
+    background: linear-gradient( rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url("https://media-assets-05.thedrum.com/cache/images/thedrum-prod/s3-news-tmp-10557-netflixa--default--1280.jpg");
     color: white;
     height: 800px;
     background-repeat: no-repeat;
     background-size: cover;
     width: auto;
   } 
+
+  /* div{
+    background: linear-gradient( rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url("https://media-assets-05.thedrum.com/cache/images/thedrum-prod/s3-news-tmp-10557-netflixa--default--1280.jpg");
+    height: 800px;
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: auto;
+  } */
 
   
   input[type="radio"] {
