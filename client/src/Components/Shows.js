@@ -4,22 +4,26 @@ import Card from './Card'
 
 function Shows({shows}) {
   return (
-    <div className='shows'>
+    <div>
       <NavBar />
-      {shows.map(show => show.genre == "show" ? <Card 
-        key = {show.id}
-        id = {show.id}
-        title = {show.title}
-        image = {show.image}
-        release = {show.release_date}
-        genre = {show.genre}
-        description = {show.description}
-        trailer = {show.trailer}
-        /> : null
-        )
-      }
+      <div className='shows'>
+        <div className="grid lg:grid-cols-5 gap-12 lg:gap-0">
+          {shows.map(show => show.genre == "show" ? <Card 
+          key = {show.id}
+          id = {show.id}
+          title = {show.title}
+          image = {show.image}
+          release = {show.release_date}
+          genre = {show.genre}
+          description = {show.description}
+          trailer = {show.trailer}
+          /> : null
+          )
+        }
+        </div>
+      </div>
     </div>
-  )
+    )
 }
 
 export default Shows
