@@ -36,29 +36,33 @@ function UserPage({reviews, renderingNewReviews, renderingWithoutDeleted}){
     return (
         <div className='userPage'>
           <NavBar userData={user}/>
-            <div>
-            <div className='h-10 pt-2 ml-10 text-5xl flex overflow-hidden h-screen '>
-            <h1 class="font-medium leading-tight pt-3 ">Hello, {user.name}</h1>
-            <img
-                src={user.avatar}
-                class="rounded-full w-10 h-10 relative ml-10 "
-                alt="Avatar"
-            />
+            <div className='userPage-header-container'>
+                <img
+                    src={user.avatar}
+                    className="rounded-full w-14 h-14 ml-10 mt-4"
+                    alt="Avatar"
+                />
+                    <div>
+                        <div className='h-10 text-5xl flex'>
+                        <h1 class="font-medium leading-tight pt-3 ">Hello, {user.name}</h1>
+                    </div>
             </div>
-            <div className="grid lg:grid-cols-3 gap-12 lg:gap-0">
-                {user.movies.map(movie => <UserMovieCard 
-                    key = {movie.id}
-                    movieId = {movie.id}
-                    title = {movie.title}
-                    image = {movie.image}
-                    user = {user}
-                    reviews = {reviews}
-                    setUser = {setUser}
-                    renderingNewReviews = {renderingNewReviews}
-                    renderingWithoutDeleted = {renderingWithoutDeleted}
-                />)}
+            <div className="userPage-contant-in-center">
+                <div className='userPage-contant-container'>
+                    {user.movies.map(movie => <UserMovieCard 
+                        key = {movie.id}
+                        movieId = {movie.id}
+                        title = {movie.title}
+                        image = {movie.image}
+                        user = {user}
+                        reviews = {reviews}
+                        setUser = {setUser}
+                        renderingNewReviews = {renderingNewReviews}
+                        renderingWithoutDeleted = {renderingWithoutDeleted}
+                    />)}
+                    </div>
                 </div>
-                </div>
+            </div>
         </div>
     )
 }
