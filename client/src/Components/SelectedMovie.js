@@ -61,9 +61,10 @@ function SelectedMovie({ userId, userData, handleAddReviews}) {
   const starObject = {1:'⭐', 2:'⭐⭐', 3:'⭐⭐⭐', 4:'⭐⭐⭐⭐', 5:'⭐⭐⭐⭐⭐' }
 
   return (
-    <div className="flex flex-wrap justify-center mt-2">
-      <div >
-      <iframe width="560" height="315" src={movie.trailer} title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen></iframe>
+    <div id='selected-movie-page' className="flex flex-wrap justify-center mt-2">
+      <NavBar userData={userData}/>
+      <div>
+      <iframe className='movie-trailer' src={movie.trailer} title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen></iframe>
       </div>
       <img className='flex justify-center object-cover rounded-xl' src={movie.image} alt="movie"/>
       <div className=''>

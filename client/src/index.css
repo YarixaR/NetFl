@@ -140,6 +140,12 @@ h1{
     grid-template-rows: 80px 1fr;
   }
 
+  #selected-movie-page{
+    background-color: rgba(0,0,0,3);;
+    display: grid;
+    grid-template-rows: 80px 1fr 1fr;
+  }
+
   .userPage{
     display: grid;
     grid-template-rows: 80px 1fr;
