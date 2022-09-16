@@ -128,25 +128,56 @@ h1{
     background-repeat: no-repeat;
     background-size: cover;
     width: auto;
-    
-    
-
   } 
 
-  .home{
-    background-color: rgba(0, 0, 0, 0.7);;
-  }
-  
-  .movies{
-    background-color: rgba(0, 0, 0, 0.7);;
+  .page{
+    background-color: rgba(0,0,0,3);;
+    display: grid;
+    grid-template-rows: 80px 1fr;
   }
 
-  .shows{
-    background-color: rgba(0, 0, 0, 0.7);;
+  #navbar-grid{
+    padding-top: 20px;
+    display: grid;
+    grid-template-columns: 350px 100px 100px 150px 1fr;
+    gap: 30px;
   }
 
-  .userPage{
-    background-color: rgba(0, 0, 0, 0.7);;
+  .header-container{
+    width: 100%;
+    height: 600px;
+    position: relative;
+  }
+
+  .header-trailer{
+    width: 100%;
+    height: 600px;
+    object-fit: cover;
+    opacity: 0.5;
+    position: absolute;
+  }
+
+  .header-title{
+    z-index: 5;
+    padding-top: 70px;
+    padding-left: 50px;
+    font-size: 70pt;
+    font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    font-kerning: none;
+    position: absolute;
+  }
+
+  #second-row-text{
+    margin-top: -40px;
+  }
+
+  .header-subtitle{
+    z-index: 5;
+    padding-top: 320px;
+    padding-left: 50px;
+    opacity: 0.5;
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    position: absolute;
   }
 
   /* .active {

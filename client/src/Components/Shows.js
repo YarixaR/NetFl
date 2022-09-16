@@ -2,10 +2,10 @@ import React from 'react'
 import NavBar from "./NavBar"
 import Card from './Card'
 
-function Shows({shows}) {
+function Shows({shows, userData}) {
   return (
     <div className='shows'>
-      <NavBar />
+      <NavBar userData={userData}/>
       {shows.map(show => show.genre == "show" ? <Card 
         key = {show.id}
         id = {show.id}

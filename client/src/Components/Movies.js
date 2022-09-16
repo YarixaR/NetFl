@@ -2,11 +2,11 @@ import { React } from 'react'
 import NavBar from "./NavBar"
 import Card from './Card'
 
-function Movies({movies}) {
+function Movies({movies, userData}) {
 
   return (
     <div className='movies'>
-      <NavBar />
+      <NavBar userData={userData}/>
       {movies.map(movie => movie.genre == "movie" ? <Card 
         key = {movie.id}
         id = {movie.id}
