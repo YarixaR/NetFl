@@ -129,6 +129,10 @@ h1{
     background-size: cover;
     width: auto;
   } 
+
+  .shows{
+    background-color: rgba(0, 0, 0, 0.7);;
+  }
   
   input[type="radio"] {
     display: none;
@@ -143,7 +147,14 @@ h1{
   #selected-movie-page{
     background-color: rgba(0,0,0,3);;
     display: grid;
-    grid-template-rows: 80px 1fr 1fr;
+    grid-template-rows: 100px 100px 1fr;
+    
+  }
+
+  .content-container{
+    grid-row: 3;
+    display: grid;
+    margin-top:600px
   }
 
   .userPage{

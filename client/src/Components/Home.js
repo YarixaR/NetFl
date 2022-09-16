@@ -27,7 +27,7 @@ function Home({movies, userId, userData}) {
         <img className='header-trailer'src='https://c.tenor.com/n72csQ3YXxcAAAAC/sea-beast-attack-the-sea-beast.gif' alt=''/>
         {/* <iframe className='header-trailer' src="https://www.youtube.com/embed/P-E-IGQCsPo?autoplay=1&mute=1" title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen></iframe> */}
       </div>
-      <div>
+      <div className="grid lg:grid-cols-5 gap-12 lg:gap-0">
         {movies.map((movie) => <Card 
           key = {movie.id}
           id = {movie.id}
