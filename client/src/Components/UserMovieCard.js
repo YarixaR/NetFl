@@ -2,11 +2,12 @@ import { React, useState, useEffect, useRef } from 'react'
 import { useHistory } from 'react-router-dom'
 import { FaStar } from 'react-icons/fa'
 
-function UserMovieCard({movieId, title, image, user, reviews, renderingNewReviews, renderingWithoutDeleted, updatedMovieCard}) {
+function UserMovieCard({movieId, title, image, user, reviews, renderingNewReviews, renderingWithoutDeleted, updatedMovieCard, handleAddReviews}) {
 
   const [rating, setRating] = useState(0)
   const [hover, setHover] = useState(null);
   const [exsitingReviewId, setExsitingReviewId] = useState("")
+  
 
   const [editedComment, setEditedComment] = useState("")
   const [isClicked, setIsClicked] = useState(false)
@@ -54,6 +55,7 @@ function UserMovieCard({movieId, title, image, user, reviews, renderingNewReview
     if (review.movie_id === movieId && review.user_id === user.id) return true
   })
 
+
   const history = useHistory()
   const handleClick = () => {
     history.push(`/movie/${movieId}`)
@@ -62,14 +64,18 @@ function UserMovieCard({movieId, title, image, user, reviews, renderingNewReview
   const starObject = {1:'⭐', 2:'⭐⭐', 3:'⭐⭐⭐', 4:'⭐⭐⭐⭐', 5:'⭐⭐⭐⭐⭐' }
   
   return (
-    <div>
-        <img src={image} alt="movie" onClick={handleClick}/>
-        <h2>{title}</h2>
+    <div className='w-60 p-2 bg-black rounded-xl mt-10 '>
+        <img className='h-30 object-cover rounded-xl'  src={image} alt="movie" onClick={handleClick}/>
+        <h2 className='font-bold text-lg text-center'>{title}</h2>
         {filteredReviews == false ? null : filteredReviews?.map((review) =>
-          <div>
+          <div className='text-sm text-gray-300 m-2 '>
             <h3 ref={refOne} onClick={e => handleExsitingReview(e, review.id)}>{review.comment} {starObject[review.rating]}</h3>
-            <button onClick={e => handleDelete(review)}>Delete</button>
+            <div className='h-10 flex items-center overflow-hidden h-screen justify-center mr-5 text-gray-600'>
+              <p>Click to edit!</p>
+            <button className='text-red-700 hover:text-white border border-red-700 hover:bg-red-800 focus:ring-4 focus:outline-none focus:ring-red-300 font-medium rounded-lg text-sm px-2 py-0.5 text-center ml-10 mr-1 mt-2 mb-1 dark:border-red-500 dark:text-red-500 dark:hover:text-white dark:hover:bg-red-600 dark:focus:ring-red-900' onClick={e => handleDelete(review)}>Delete</button>
+            </div>
           </div>
+          
         )}
         {isClicked
           ? <form onSubmit={handleSubmit}>

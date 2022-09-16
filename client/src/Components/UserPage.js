@@ -28,6 +28,7 @@ function UserPage({reviews, renderingNewReviews, renderingWithoutDeleted}){
             }
         })     
     }, [])
+    
 
     const updatedMovieCard = (deletedReview) => {
         const updatedUserData = user.movies?.filter((movie) => {
@@ -41,7 +42,7 @@ function UserPage({reviews, renderingNewReviews, renderingWithoutDeleted}){
     return (
         <div className='userPage'>
           <NavBar />
-          <div className='h-12 pt-5 flex items-center overflow-hidden h-screen justify-center'>
+          <div className='h-11 pt-5 flex items-center overflow-hidden h-screen justify-center'>
             <h1 class="font-medium leading-tight pt-3 text-5xl">Hello, {user.name}</h1>
             <img
                 src={user.avatar}
@@ -49,6 +50,7 @@ function UserPage({reviews, renderingNewReviews, renderingWithoutDeleted}){
                 alt="Avatar"
             />
             </div>
+            <div>
                 {user.movies.map(movie => <UserMovieCard 
                     key = {movie.id}
                     movieId = {movie.id}
@@ -60,6 +62,7 @@ function UserPage({reviews, renderingNewReviews, renderingWithoutDeleted}){
                     renderingWithoutDeleted = {renderingWithoutDeleted}
                     updatedMovieCard = {updatedMovieCard}
                 />)}
+                </div>
         </div>
     )
 }

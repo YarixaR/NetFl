@@ -13,7 +13,8 @@ function App() {
   const [ movies, setMovies ] = useState([])
   const [ userId, setUserId ] = useState(0)
   const [ userData, setUserData ] = useState([])
-  const [ reviews, setReviews ] =useState([])
+  const [ reviews, setReviews ] = useState([])
+
 
 
   useEffect(() => {
@@ -28,11 +29,18 @@ function App() {
     .then((data) => setUserData(data))
   }, [])
 
+
   useEffect(() => {
     fetch('/reviews')
     .then((res) => res.json())
     .then((data) => setReviews(data))
   }, [])
+
+    
+  const handleAddReviews = (addedReview) => {
+    setReviews(oldReviews =>[...oldReviews, addedReview])
+    
+  }
 
   const settingUserId = (id) => {
     setUserId(id)
@@ -69,7 +77,7 @@ function App() {
           <SignUp />
         </Route>
         <Route path="/movie/:id">
-          <SelectedMovie userId={userData.id}/>
+          <SelectedMovie handleAddReviews={handleAddReviews} userId={userData.id}/>
         </Route>
         <Route path="/movies">
           <Movies movies={movies}/>
