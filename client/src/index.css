@@ -129,6 +129,10 @@ h1{
     background-size: cover;
     width: auto;
   } 
+  
+  input[type="radio"] {
+    display: none;
+  }
 
   .page{
     background-color: rgba(0,0,0,3);;

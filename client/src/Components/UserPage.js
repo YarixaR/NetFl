@@ -36,15 +36,16 @@ function UserPage({reviews, renderingNewReviews, renderingWithoutDeleted}){
     return (
         <div className='userPage'>
           <NavBar userData={user}/>
-          <div className='h-11 pt-5 flex items-center overflow-hidden h-screen justify-center'>
-            <h1 class="font-medium leading-tight pt-3 text-5xl">Hello, {user.name}</h1>
+            <div>
+            <div className='h-10 pt-2 ml-10 text-5xl flex overflow-hidden h-screen '>
+            <h1 class="font-medium leading-tight pt-3 ">Hello, {user.name}</h1>
             <img
                 src={user.avatar}
-                class="rounded-full w-20 relative ml-10 "
+                class="rounded-full w-10 h-10 relative ml-10 "
                 alt="Avatar"
             />
             </div>
-            <div>
+            <div className="grid lg:grid-cols-3 gap-12 lg:gap-0">
                 {user.movies.map(movie => <UserMovieCard 
                     key = {movie.id}
                     movieId = {movie.id}
@@ -56,6 +57,7 @@ function UserPage({reviews, renderingNewReviews, renderingWithoutDeleted}){
                     renderingNewReviews = {renderingNewReviews}
                     renderingWithoutDeleted = {renderingWithoutDeleted}
                 />)}
+                </div>
                 </div>
         </div>
     )
