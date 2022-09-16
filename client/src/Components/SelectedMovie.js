@@ -53,7 +53,6 @@ function SelectedMovie({ userId, handleAddReviews}) {
           handleMovieId()
         })
         // .then(window.location.reload(false))
-
     e.target.reset()
   }
 
@@ -106,4 +105,3 @@ function SelectedMovie({ userId, handleAddReviews}) {
 }
 
 export default SelectedMovie
-

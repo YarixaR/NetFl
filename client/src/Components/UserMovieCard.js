@@ -1,8 +1,8 @@
-import { React, useState, useEffect, useRef } from 'react'
+import { React, useState, useRef } from 'react'
 import { useHistory } from 'react-router-dom'
 import { FaStar } from 'react-icons/fa'
 
-function UserMovieCard({movieId, title, image, user, reviews, renderingNewReviews, renderingWithoutDeleted, updatedMovieCard, handleAddReviews}) {
+function UserMovieCard({movieId, title, image, user, setUser, reviews, renderingNewReviews, renderingWithoutDeleted, updatedMovieCard})
 
   const [rating, setRating] = useState(0)
   const [hover, setHover] = useState(null);
@@ -46,8 +46,12 @@ function UserMovieCard({movieId, title, image, user, reviews, renderingNewReview
     fetch(`/reviews/${id}`, {
       method: 'DELETE'
     }).then(() => { 
+      const newUser = { ...user }
+      newUser.movies = user.movies?.filter((movie) => {
+        if (movie.id !== review.movie_id) return true
+      })
+      setUser(newUser)
       renderingWithoutDeleted(review)
-      updatedMovieCard(review)
     })
   }
 

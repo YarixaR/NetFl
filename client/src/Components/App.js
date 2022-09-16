@@ -19,9 +19,11 @@ function App() {
 
   useEffect(() => {
     fetch('/movies')
-    .then((res) => res.json())
-    .then((data) => setMovies(data))
-  }, [ userId ])
+    .then((res) => {
+      if (res.ok) {
+        res.json().then((data => setMovies(data)))
+      }
+  })}, [ userId ])
 
   useEffect(() => {
     fetch(`/users/${userId}`)
