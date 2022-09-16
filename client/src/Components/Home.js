@@ -1,8 +1,15 @@
 import React from 'react'
+import {useHistory} from 'react-router-dom'
 import NavBar from "./NavBar"
 import Card from './Card'
 
 function Home({movies, userId, userData}) {
+
+  const history = useHistory()
+
+  const handleClick = () => {
+    history.push('/movie/2')
+  }
 
   return (
     <div className='page' >
@@ -16,6 +23,7 @@ function Home({movies, userId, userData}) {
           <h1>FROM THE AWARD WINNING</h1>
           <h1>Filmmaker of MOANA & BIG HERO 6</h1>
         </div>
+        <button onClick={handleClick} id='detail-btn' className='ml-14 mt-96 text-white border border-red-700 bg-red-800 focus:ring-4 focus:outline-none focus:ring-red-300 font-medium rounded-lg px-14 py-3 text-center dark:border-red-500 dark:text-red-500 dark:hover:text-white dark:hover:bg-red-600 dark:focus:ring-red-900'>Check Details</button>
         <img className='header-trailer'src='https://c.tenor.com/n72csQ3YXxcAAAAC/sea-beast-attack-the-sea-beast.gif' alt=''/>
         {/* <iframe className='header-trailer' src="https://www.youtube.com/embed/P-E-IGQCsPo?autoplay=1&mute=1" title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen></iframe> */}
       </div>

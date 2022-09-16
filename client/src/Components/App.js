@@ -77,7 +77,7 @@ function App() {
           <SignUp />
         </Route>
         <Route path="/movie/:id">
-          <SelectedMovie handleAddReviews={handleAddReviews} userId={userData.id}/>
+          <SelectedMovie handleAddReviews={handleAddReviews} userId={userData.id} userData={userData}/>
         </Route>
         <Route path="/movies">
           <Movies movies={movies} userData={userData}/>

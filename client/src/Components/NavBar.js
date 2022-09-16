@@ -1,5 +1,6 @@
 import { React, useState } from "react";
 import { NavLink, useHistory } from 'react-router-dom'
+import Netflat_logo from '../Images/Netflat_logo.png'
 
 function NavBar({userData}) {
 
@@ -22,8 +23,15 @@ function NavBar({userData}) {
         history.push('/user/:id')
     }
 
+    const toHome = () => {
+        history.push('/home')
+    }
+
     return(
         <div id="navbar-grid" className="bg-gray-4 flex overflow-hidden h-screen">
+            <div id="netflat-logo" onClick={toHome}>
+                <img src={Netflat_logo} alt=''/>
+            </div>
             <div className="flex absolute right-7 gap-2 lg:gap-3">
                     <div className="hidden sm:ml-6 sm:block">
                         <NavLink exact to = "/home" className=" hover:bg-gray-700 text-white px-3 py-2 rounded-md text-sm font-medium">Home</NavLink>

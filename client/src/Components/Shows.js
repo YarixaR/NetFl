@@ -4,7 +4,7 @@ import Card from './Card'
 
 function Shows({shows, userData}) {
   return (
-    <div className='shows'>
+    <div className='page'>
       <NavBar userData={userData}/>
       {shows.map(show => show.genre == "show" ? <Card 
         key = {show.id}

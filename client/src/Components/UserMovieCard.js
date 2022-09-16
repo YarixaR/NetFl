@@ -68,7 +68,7 @@ function UserMovieCard({movieId, title, image, user, setUser, reviews, rendering
   const starObject = {1:'⭐', 2:'⭐⭐', 3:'⭐⭐⭐', 4:'⭐⭐⭐⭐', 5:'⭐⭐⭐⭐⭐' }
   
   return (
-    <div className='w-60 p-2 bg-black rounded-xl mt-10 '>
+    <div className='w-60 p-2 bg-black rounded-xl mt-10'>
         <img className='h-30 object-cover rounded-xl'  src={image} alt="movie" onClick={handleClick}/>
         <h2 className='font-bold text-lg text-center'>{title}</h2>
         {filteredReviews == false ? null : filteredReviews?.map((review) =>
