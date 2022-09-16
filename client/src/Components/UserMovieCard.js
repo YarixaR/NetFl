@@ -2,7 +2,7 @@ import { React, useState, useRef } from 'react'
 import { useHistory } from 'react-router-dom'
 import { FaStar } from 'react-icons/fa'
 
-function UserMovieCard({movieId, title, image, user, setUser, reviews, renderingNewReviews, renderingWithoutDeleted, updatedMovieCard})
+function UserMovieCard({movieId, title, image, user, setUser, reviews, renderingNewReviews, renderingWithoutDeleted, updatedMovieCard}) {
 
   const [rating, setRating] = useState(0)
   const [hover, setHover] = useState(null);
