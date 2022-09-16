@@ -4,9 +4,8 @@ import Card from './Card'
 
 function Shows({shows, userData}) {
   return (
-    <div className='page'>
+    <div className='pageShows'>
       <NavBar userData={userData}/>
-      <div className='shows'>
         <div className="grid lg:grid-cols-5 gap-12 lg:gap-0">
           {shows.map(show => show.genre == "show" ? <Card 
           key = {show.id}
@@ -22,7 +21,6 @@ function Shows({shows, userData}) {
         }
         </div>
       </div>
-    </div>
     )
 }
 
