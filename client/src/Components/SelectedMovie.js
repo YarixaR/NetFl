@@ -42,12 +42,12 @@ function SelectedMovie({userId}) {
       }),
       })    
         .then((resp) => resp.json())
-        // .then((review) => {
-        //   const newMovie = { ...movie }
-        //   newMovie.reviews = review
-        //   setMovie(newMovie)
-        // })
-
+        .then((review) => {
+          const newMovie = {...movie}
+          movie.reviews = review.movie_id
+          // setMovie(newMovie)
+          console.log(newMovie)
+        })
 
     e.target.reset()
   }
@@ -101,4 +101,3 @@ function SelectedMovie({userId}) {
 }
 
 export default SelectedMovie
-
