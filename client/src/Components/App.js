@@ -15,8 +15,6 @@ function App() {
   const [ userData, setUserData ] = useState([])
   const [ reviews, setReviews ] = useState([])
 
-
-
   useEffect(() => {
     fetch('/movies')
     .then((res) => {
@@ -73,19 +71,19 @@ function App() {
     <div>
       <Switch>
         <Route path="/home">
-          <Home movies={movies}/>
+          <Home movies={movies} userId={userId} userData={userData}/>
         </Route>
         <Route path="/signup">
           <SignUp />
         </Route>
         <Route path="/movie/:id">
-          <SelectedMovie handleAddReviews={handleAddReviews} userId={userData.id}/>
+          <SelectedMovie handleAddReviews={handleAddReviews} userId={userData.id} userData={userData}/>
         </Route>
         <Route path="/movies">
-          <Movies movies={movies}/>
+          <Movies movies={movies} userData={userData}/>
         </Route>
         <Route path="/shows">
-          <Shows shows={movies}/>
+          <Shows shows={movies} userData={userData}/>
         </Route>
         <Route path="/newposting">
           <PostingNew renderingNewMovie={renderingNewMovie}/>

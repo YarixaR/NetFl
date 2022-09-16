@@ -1,8 +1,9 @@
 import { React, useState, useEffect } from 'react'
 import { useParams, useHistory } from 'react-router-dom'
 import { FaStar } from 'react-icons/fa'
+import NavBar from "./NavBar"
 
-function SelectedMovie({ userId, handleAddReviews}) {
+function SelectedMovie({ userId, userData, handleAddReviews}) {
   const [ movie, setMovie ] = useState([])
 
   const [rating, setRating] = useState(0)
@@ -12,8 +13,6 @@ function SelectedMovie({ userId, handleAddReviews}) {
 
   const {id} = useParams()
   const history = useHistory()
-  
-
 
   const handleMovieId = () => {
     fetch(`/movies/${id}`)
@@ -52,7 +51,6 @@ function SelectedMovie({ userId, handleAddReviews}) {
           handleAddReviews(data)
           handleMovieId()
         })
-        // .then(window.location.reload(false))
     e.target.reset()
   }
 

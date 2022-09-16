@@ -49,7 +49,7 @@ function SignUp() {
     <div className="flex flex-wrap justify-center mt-20">
       <div className="w-full max-w-sm">
         <div>
-          <form onSubmit={handleSubmit} className="shadow-md rounded-lg bg-black opacity-90 h-96 rounded px-8 pt-6 pb-8 mb-4 ">
+          <form onSubmit={handleSubmit} className="shadow-md rounded-lg bg-black opacity-90  rounded px-8 pt-6 pb-8 mb-4 ">
           <section>
               <h1 className="text-xl dark:text-white font-bold text-center">
                 Sign Up
@@ -83,7 +83,7 @@ function SignUp() {
               placeholder='Avatar Url'
               value={avatar} 
               onChange={handleChange} />
-            <button className="w-full mt-5  opacity-100 my-5 py-2 bg-red-500 shadow-lg shadow-red-500/50 hover:shadow-red-500-40 text-white font-semibold rounded-lg" type='submit'>Sign Up</button>
+            <button className="ml-10 mt-5 w-60 p-2 opacity-100 bg-red-500 shadow-lg shadow-red-500/50 hover:shadow-red-500-40 text-white font-semibold rounded-lg" type='submit'>Sign Up</button>
           </form>
           <div className="bg-gray-4 flex items-center overflow-hidden justify-center">
           {errors? errors.map(error => <div> {error[1]} </div>) :null}

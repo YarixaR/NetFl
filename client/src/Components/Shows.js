@@ -2,10 +2,10 @@ import React from 'react'
 import NavBar from "./NavBar"
 import Card from './Card'
 
-function Shows({shows}) {
+function Shows({shows, userData}) {
   return (
-    <div>
-      <NavBar />
+    <div className='page'>
+      <NavBar userData={userData}/>
       <div className='shows'>
         <div className="grid lg:grid-cols-5 gap-12 lg:gap-0">
           {shows.map(show => show.genre == "show" ? <Card 

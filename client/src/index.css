@@ -128,30 +128,103 @@ h1{
     background-repeat: no-repeat;
     background-size: cover;
     width: auto;
-    
-    
-
   } 
   
   input[type="radio"] {
     display: none;
   }
 
-  .home{
-    background-color: rgba(0, 0, 0, 0.7);;
-  }
-  
-  .movies{
-    background-color: rgba(0, 0, 0, 0.7);;
-  }
-
-  .shows{
-    background-color: rgba(0, 0, 0, 0.7);;
+  .page{
+    background-color: rgba(0,0,0,3);;
+    display: grid;
+    grid-template-rows: 80px 1fr;
   }
 
   .userPage{
-    background-color: rgba(0, 0, 0, 0.7);;
+    display: grid;
+    grid-template-rows: 80px 1fr;
   }
+
+  #navbar-grid{
+    padding-top: 20px;
+    display: grid;
+    grid-template-columns: 350px 100px 100px 150px 1fr;
+    gap: 30px;
+  }
+
+  #netflat-logo{
+    margin-left: 26px;
+    cursor: pointer;
+    margin-top: 7px;
+    width: 100px;
+    height: auto;
+  }
+
+  .header-container{
+    width: 100%;
+    height: 500px;
+    position: relative;
+  }
+
+  .header-trailer{
+    width: 100%;
+    height: 500px;
+    object-fit: cover;
+    opacity: 0.5;
+    position: absolute;
+  }
+
+  .header-title{
+    z-index: 5;
+    padding-top: 45px;
+    padding-left: 60px;
+    font-size: 70pt;
+    font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    font-kerning: none;
+    position: absolute;
+  }
+
+  #second-row-text{
+    margin-top: -40px;
+  }
+
+  .header-subtitle{
+    z-index: 5;
+    padding-top: 275px;
+    padding-left: 60px;
+    font-size: 20px;
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    position: absolute;
+  }
+
+  #detail-btn{
+    position: absolute;
+    z-index: 5;
+  }
+
+  .movie-trailer{
+    margin-top: 70px;
+    width: 100%;
+    height: 600px;
+    object-fit: cover;
+    position: absolute;
+  }
+
+  .selected-card{
+    width: 350px;
+    padding: 30px;
+    background-color: black;
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+    margin-top: 100px;
+  }
+
+  .card-grid{
+    display: grid;
+    grid-template-columns: auto 805px auto;
+  }
+
+  /* className='w-80 p-2 bg-black rounded-xl mt-10'> */
 
   /* .active {
     border: 2px solid white;

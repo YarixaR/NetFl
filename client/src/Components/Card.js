@@ -1,7 +1,7 @@
 import React from 'react'
 import { useHistory } from 'react-router-dom'
 
-function MovieCard({id, title, image, release, genre, description, trailer}) {
+function Card({id, title, image, release, genre, description}) {
 
   const history = useHistory()
 
@@ -22,5 +22,5 @@ function MovieCard({id, title, image, release, genre, description, trailer}) {
   )
 }
 
-export default  MovieCard
+export default Card
 

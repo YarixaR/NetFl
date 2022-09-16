@@ -35,7 +35,7 @@ function UserPage({reviews, renderingNewReviews, renderingWithoutDeleted}){
     if(errors) return <h1>{errors}</h1>
     return (
         <div className='userPage'>
-          <NavBar />
+          <NavBar userData={user}/>
             <div>
             <div className='h-10 pt-2 ml-10 text-5xl flex overflow-hidden h-screen '>
             <h1 class="font-medium leading-tight pt-3 ">Hello, {user.name}</h1>

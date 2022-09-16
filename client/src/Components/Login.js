@@ -1,6 +1,7 @@
 import React from "react";
 import { useState } from "react";
 import { Link, useHistory } from 'react-router-dom'
+import Netflat_logo from '../Images/Netflat_logo.png'
 
 function Login({settingUserId}) {
   const [formData, setFormData] = useState({
@@ -42,42 +43,42 @@ function Login({settingUserId}) {
 
   return(
     <div className="login">
-    <div className="flex flex-wrap justify-center mt-20">
-      <div className="w-full max-w-sm">
-        <div>
-          <form onSubmit={handleSubmit} className="shadow-md rounded-lg bg-black opacity-90 h-96 rounded px-8 pt-6 pb-8 mb-4 ">
-            <section>
-              <h1 className="text-xl dark:text-white font-bold text-center">
-                Login
-              </h1>
-            </section>
-            <input 
-              className="rounded-lg ml-10 mt-10 w-60 p-2 bg-gray-700 focus:border-blue-500 focus:bg-gray-800 focus:outline-none"
-              type='text' 
-              name='email' 
-              placeholder="Email"
-              value={formData.email}
-              onChange={handleChange}>
-            </input>
-            <input 
+      <div className="flex flex-wrap justify-center mt-20">
+        <div className="w-full max-w-sm">
+          <div>
+            <form onSubmit={handleSubmit} className="shadow-md rounded-lg bg-black opacity-90 h-96 rounded px-8 pt-6 pb-8 mb-4 ">
+              <section>
+                <h1 className="text-xl dark:text-white font-bold text-center">
+                  Login
+                </h1>
+              </section>
+              <input 
                 className="rounded-lg ml-10 mt-10 w-60 p-2 bg-gray-700 focus:border-blue-500 focus:bg-gray-800 focus:outline-none"
-              type='password'
-              name='password' 
-              placeholder='Password' 
-              value={formData.password}
-              onChange={handleChange}>
-            </input>
-          <button className="w-full mt-10 opacity-100 my-5 py-2 bg-red-500 shadow-lg shadow-red-500/50 hover:shadow-red-500-40 text-white font-semibold rounded-lg" type='submit'>Sign In</button>
-          <div className="flex justify-between text-gray-400 py-2 mr-2">
-            <Link to={'/signup'}>Sign up now!</Link>
+                type='text' 
+                name='email' 
+                placeholder="Email"
+                value={formData.email}
+                onChange={handleChange}>
+              </input>
+              <input 
+                  className="rounded-lg ml-10 mt-8 w-60 p-2 bg-gray-700 focus:border-blue-500 focus:bg-gray-800 focus:outline-none"
+                type='password'
+                name='password' 
+                placeholder='Password' 
+                value={formData.password}
+                onChange={handleChange}>
+              </input>
+            <button className="ml-10 mt-8 w-60 p-2 opacity-100 bg-red-500 shadow-lg shadow-red-500/50 hover:shadow-red-500-40 text-white font-semibold rounded-lg" type='submit'>Sign In</button>
+            <div className="flex justify-between text-gray-400 py-2 mr-2">
+              <Link to={'/signup'} className="ml-10 mt-5">Sign up now!</Link>
+            </div>
+        </form>
+        <div className="bg-gray-4 flex items-center overflow-hidden justify-center">
+          {errors? errors.map(e => <div>{e[0]+': ' + e[1]}</div>):null}
           </div>
-       </form>
-       <div className="bg-gray-4 flex items-center overflow-hidden justify-center">
-        {errors? errors.map(e => <div>{e[0]+': ' + e[1]}</div>):null}
-        </div>
+          </div>
         </div>
       </div>
-    </div>
     </div>
   )
 }
