@@ -2,7 +2,7 @@ import { React, useState, useEffect } from 'react'
 import { useParams, useHistory } from 'react-router-dom'
 import { FaStar } from 'react-icons/fa'
 
-function SelectedMovie({userId}) {
+function SelectedMovie({ userId, handleAddReviews}) {
   const [ movie, setMovie ] = useState([])
 
   const [rating, setRating] = useState(0)
@@ -13,12 +13,18 @@ function SelectedMovie({userId}) {
   const {id} = useParams()
   const history = useHistory()
   
-  useEffect(() => {
+
+
+  const handleMovieId = () => {
     fetch(`/movies/${id}`)
     .then((res) => res.json())
     .then((data) => setMovie(data))
-  }, [])
+  }
 
+  useEffect(() => {
+    handleMovieId()
+  }, [])
+  
   const handleClick = () => {
     history.push('/home')
   }
@@ -42,13 +48,11 @@ function SelectedMovie({userId}) {
       }),
       })    
         .then((resp) => resp.json())
-        .then((review) => {
-          const newMovie = {...movie}
-          movie.reviews = review.movie_id
-          // setMovie(newMovie)
-          console.log(newMovie)
+        .then(data => {
+          handleAddReviews(data)
+          handleMovieId()
         })
-
+        // .then(window.location.reload(false))
     e.target.reset()
   }
 

@@ -13,7 +13,7 @@ function NavBar() {
     
 
     return(
-        <div className="bg-gray-4 h-12 flex items-center overflow-hidden h-screen justify-center">
+        <div className="bg-gray-4 h-10 flex items-center overflow-hidden h-screen justify-center">
             <div className="flex gap-2 lg:gap-3">
                     <div className="hidden sm:ml-6 sm:block">
                         <NavLink exact to = "/home" className=" hover:bg-gray-700 text-white px-3 py-2 rounded-md text-sm font-medium">Home</NavLink>
