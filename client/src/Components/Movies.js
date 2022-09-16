@@ -7,18 +7,20 @@ function Movies({movies}) {
   return (
     <div className='movies'>
       <NavBar />
-      {movies.map(movie => movie.genre == "movie" ? <Card 
-        key = {movie.id}
-        id = {movie.id}
-        title = {movie.title}
-        image = {movie.image}
-        release = {movie.release_date}
-        genre = {movie.genre}
-        description = {movie.description}
-        trailer = {movie.trailer}
-        /> : null
-        )
-      }
+      <div className="grid lg:grid-cols-5 gap-12 lg:gap-0">
+          {movies.map(movie => movie.genre == "movie" ? <Card 
+            key = {movie.id}
+            id = {movie.id}
+            title = {movie.title}
+            image = {movie.image}
+            release = {movie.release_date}
+            genre = {movie.genre}
+            description = {movie.description}
+            trailer = {movie.trailer}
+            /> : null
+            )
+          }
+      </div>
     </div>
   )
 }
