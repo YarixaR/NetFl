@@ -72,7 +72,9 @@ function Login({settingUserId}) {
             <Link to={'/signup'}>Sign up now!</Link>
           </div>
        </form>
-       {errors?errors.map(e => <div>{e[0]+': ' + e[1]}</div>):null}
+       <div className="bg-gray-4 flex items-center overflow-hidden justify-center">
+        {errors? errors.map(e => <div>{e[0]+': ' + e[1]}</div>):null}
+        </div>
         </div>
       </div>
     </div>
@@ -80,4 +82,4 @@ function Login({settingUserId}) {
   )
 }
 
-export default Login; 
+export default Login;      
