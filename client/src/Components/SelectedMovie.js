@@ -61,18 +61,18 @@ function SelectedMovie({ userId, userData, handleAddReviews}) {
   const starObject = {1:'⭐', 2:'⭐⭐', 3:'⭐⭐⭐', 4:'⭐⭐⭐⭐', 5:'⭐⭐⭐⭐⭐' }
 
   return (
-    <div id='selected-movie-page' className="flex flex-wrap align-items-center justify-content-between">
+    <div id='selected-movie-page' className="flex flex-wrap align-items-center ">
       <NavBar userData={userData}/>
       <div>
       <iframe className='movie-trailer' src={movie.trailer} title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen></iframe>
       </div>
-      <div className='content-container'>
+      <div className='content-container p-40 '>
       <img className='rounded-xl w-100 h-96 mx-auto' src={movie.image} alt="movie"/>
         <h2 className='font-bold text-lg text-center'>{movie.title}</h2>
         {/* <h4>{movie.genre}</h4> */}
         <h4 className='font-bold text-lg text-center'>{movie.release_date}</h4>
         <h4 className="text-center text-gray-400 py-2 mr-2">{movie.description}</h4>
-      <div className="w-full max-w-sm ml-80 mt-5">
+      <div className=" max-w-sm ml-80 mt-5">
           <h1 className="text-xl dark:text-white font-bold text-center">
             Leave a review!
           </h1>
