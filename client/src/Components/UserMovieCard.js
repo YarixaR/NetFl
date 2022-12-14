@@ -84,7 +84,7 @@ function UserMovieCard({movieId, title, image, user, setUser, reviews, rendering
         )}
         {isClicked
           ? <form onSubmit={handleSubmit}>
-              <input className="rounded-lg ml-1 mt-1 w-30 p-1 bg-gray-700 focus:border-blue-500 focus:bg-gray-800 focus:outline-none" type='text' name='comment' placeholder='Edit comment' value={editedComment} onChange={handleChange}></input>
+              <input className=" text-center rounded-lg ml-1 mt-1 w-30 p-1 bg-gray-700 focus:border-blue-500 focus:bg-gray-800 focus:outline-none" type='text' name='comment' placeholder='Edit comment' value={editedComment} onChange={handleChange}></input>
               {[...Array(5)].map((star, i) => {
                 const ratingValue = i + 1;
                 return (
@@ -97,6 +97,7 @@ function UserMovieCard({movieId, title, image, user, setUser, reviews, rendering
                       onClick= {() => setRating(ratingValue + 1)}
                     />
                     <FaStar
+                      className=' flex justify-center'
                       icon="fa-solid fa-star"
                       color= {ratingValue < (hover || rating) ? "#ffc107" : "#e4e5e9"}
                       size = {20}

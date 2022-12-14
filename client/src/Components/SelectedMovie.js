@@ -67,7 +67,7 @@ function SelectedMovie({ userId, userData, handleAddReviews}) {
       <iframe className='movie-trailer' src={movie.trailer} title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen></iframe>
       </div>
       <div className='content-container'>
-      <img className='rounded-xl w-full h-auto block' src={movie.image} alt="movie"/>
+      <img className='rounded-xl w-100 h-96 mx-auto' src={movie.image} alt="movie"/>
         <h2 className='font-bold text-lg text-center'>{movie.title}</h2>
         {/* <h4>{movie.genre}</h4> */}
         <h4 className='font-bold text-lg text-center'>{movie.release_date}</h4>

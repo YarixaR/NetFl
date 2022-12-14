@@ -34,7 +34,7 @@ function App() {
     fetch('/reviews')
     .then((res) => res.json())
     .then((data) => setReviews(data))
-  }, [])
+}, [])
 
     
   const handleAddReviews = (addedReview) => {
