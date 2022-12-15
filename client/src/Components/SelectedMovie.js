@@ -77,7 +77,7 @@ function SelectedMovie({ userId, userData, handleAddReviews}) {
             Leave a review!
           </h1>
       <form className="bg-black h-96 rounded px-8 pb-8 mb-4  " onSubmit={handleSubmit}>
-      <div className='text-lg text-center mt-10'>
+      <div className='text-lg text-center mt-5 mb-5 ml-20'>
         {movie.reviews == false ? null : movie.reviews?.map((review) => <h3 onClick={navigateToUserPage}>{review.comment} {starObject[review.rating]}</h3>)}
       </div>
         <input className="text-center flex justify-center rounded-lg ml-20 w-60 p-2 bg-gray-700 focus:border-blue-500 focus:bg-gray-800 focus:outline-none" type='text' name='comment' placeholder='Write a comment' onChange={handleChange}/>
